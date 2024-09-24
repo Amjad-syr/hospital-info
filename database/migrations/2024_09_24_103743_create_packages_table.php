@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("service_id")->constrained("services")->cascadeOnDelete();
+            $table->foreignId("hospital_id")->constrained("hospitals")->cascadeOnDelete();
+            $table->string('doctor_cut', 20);
+            $table->string('hospital_cut', 20);
+            $table->string('total', 25);
+            $table->date('date');
+            $table->boolean('status')->default(true);
+            $table->string('note', 255)->nullable();
             $table->timestamps();
         });
     }

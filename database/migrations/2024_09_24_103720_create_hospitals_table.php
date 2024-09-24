@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('hospitals', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name',50);
             $table->integer('type')->unsigned();
             $table->string('governorate');
             $table->boolean('status')->default(true);
